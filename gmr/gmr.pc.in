@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+datarootdir=@datarootdir@
+datadir=@datadir@
+includedir=@includedir@/gmr
+
+Name: libgmr
+Description: General Miscellaneous Runtime
+Version: @VERSION@
+Requires:
+Libs: -L${libdir} -lgmr
+Cflags: -I${includedir}

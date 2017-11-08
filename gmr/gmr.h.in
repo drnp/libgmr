@@ -1,0 +1,104 @@
+/* -*- Mode: C; indent-tabs-mode: nil; c-basic-offset: 4; tab-width: 4 -*-  */
+/*
+ * gmr.h
+ * Copyright (C) 2016 Dr.NP <np@bsgroup.org>
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. Neither the name ``Dr.NP'' nor the name of any other
+ *    contributor may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * libgmr IS PROVIDED BY Dr.NP ``AS IS'' AND ANY EXPRESS
+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL Dr.NP OR ANY OTHER CONTRIBUTORS
+ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/**
+ * @file gmr.h
+ * @author Dr.NP <np@bsgroup.org>
+ * @date 11/07/2017
+ * @update -/-/-
+ * @version 0.0.1
+ * @note Do not modify .h file immediatelly, edit .h.in instead.
+ *
+ * This file is part of libgmr project. This the main C header file.
+ * You can just include this header in your application to use libgmr.
+ * Only core here, include other headers as your mind.
+ */
+
+#ifndef _GMR_H
+
+#define _GMR_H
+#define _GNU_SOURCE
+
+// General informations
+#define GMR_VERSION_MAJOR               0
+#define GMR_VERSION_MINOR               0
+#define GMR_VERSION_REVISION            1
+#define GMR_VERSION_STATUS              "dev"
+#define GMR_VERSION                     GMR_VERSION_MAJOR##.##GMR_VERSION_MINOR##.##GMR_VERSION_REVISION##-##GMR_VERSION_STATUS
+#define GMR_SIGNATURE                   "General Miscellaneous Runtime Library (Slug)"
+
+// Function declaration keywords
+#define GMR_DECLARE(type)               type
+#define GMR_EXPORT(type)                type
+#define GMR_PRIVATE(type)               static type
+#define GMR_INLINE(type)                inline type
+#define GMR_PINLINE(type)               static inline type
+
+// Standard headers
+#include <assert.h>
+#include <ctype.h>
+#include <errno.h>
+#include <float.h>
+#include <limits.h>
+#include <math.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+// (c99 standard)
+#include <inttypes.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+// (c11 standard)
+#ifdef __STDC_VERSION__
+  #if __STDC_VERSION__ >= 2011121
+    #include <stdaligh.h>
+    #include <stdatomic.h>
+    #include <stdnoreturn.h>
+    #include <threads.h>
+    #include <uchar.h>
+  #endif
+#endif
+
+// General types
+#define GMR_TRUE (1 == 1)
+#define GMR_FALSE (0 == 1)
+
+typedef gmr_ptr void *;
+typedef enum {GMR_TRUE, GMR_FALSE} gmr_bool ;
+
+#include "core/gmr_core.h"
+
+#endif  /* _GMR_H */
